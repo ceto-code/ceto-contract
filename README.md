@@ -1,3 +1,9 @@
+# Crystal Elephant Token
+
+## Whitepaper
+https://crystalelephant.net/whitepaper
+
+## Documentation
 [Hourglass]: #Hourglass
 [Hourglass-onlyBagholders--]: #Hourglass-onlyBagholders--
 [Hourglass-onlyStronghands--]: #Hourglass-onlyStronghands--
