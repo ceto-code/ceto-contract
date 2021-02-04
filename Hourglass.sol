@@ -60,9 +60,10 @@ contract Hourglass {
             );
 
             // updated the accumulated quota
-            ambassadorAccumulatedQuota_[_customerAddress] =
-                ambassadorAccumulatedQuota_[_customerAddress] +
-                _amountOfTron;
+            ambassadorAccumulatedQuota_[_customerAddress] = SafeMath.add(
+                ambassadorAccumulatedQuota_[_customerAddress],
+                _amountOfTron
+            );
 
             // execute
             _;
@@ -146,8 +147,8 @@ contract Hourglass {
     // amount of tokens bought with their buy timestamp for each address
     struct TimestampedBalance {
         uint256 value;
+        uint256 timestamp;
         uint256 valueSold;
-        uint40 timestamp;
     }
 
     mapping(address => TimestampedBalance[])
@@ -191,9 +192,29 @@ contract Hourglass {
         address owner = msg.sender;
         administrators[owner] = true;
 
-        // contributors that need to remain private out of security concerns.
-        // TODO: need to add ambassadors
-        // ambassadors_[0xF5fCb8C1dB05645A0993a0be3e0f264551f5d75d] = true; //dp
+        ambassadors_[0x5716d088a6E3f30FdC8c08eA5c519C103D2BBC24] = true; //ct3
+        ambassadors_[0xdafD17E58f48D462BC7F271A3eee7486B419A632] = true; //ct4
+        ambassadors_[0x9814FF84B339A05eD9012669f3c83cD06B51c863] = true; //ct5
+        ambassadors_[0xc0c6B3d8F93C348474Aee5328d7aB9BECB7dAeAc] = true; //ct6
+        ambassadors_[0x0Fc480eB1fC590a37647275529B875417C1e4f06] = true; //ct7
+        ambassadors_[0xc5f6Bb13B0C2B293391195D04945c6c85708C61a] = true; //ct8
+        ambassadors_[0x0E8316560ADa85933601C4Ca174E1b4846B8893e] = true; //ct9
+        ambassadors_[0xB0d88b3eC207239Da648789cc23ECFda8906850d] = true; //ct10
+        ambassadors_[0x8f00412B7DecB40b09A2be04EB0176104BDa6345] = true; //ct11
+        ambassadors_[0x47f06D6269B2fca8238326C26Ef8D5663A2DEde8] = true; //ct12
+        ambassadors_[0x1B34e4379650AD21f76e1b319fb109061748534E] = true; //ct13
+        ambassadors_[0x1ECE8b43D8Bf4F191Db604830c2d53476BE5e8e0] = true; //ct14
+        ambassadors_[0xfafAa13890452fA444959798302ff8A2d207915d] = true; //ct15
+        ambassadors_[0x1e8fD2c59794DCC4Da828A3bCdb60d89299E3cF9] = true; //ct16
+        ambassadors_[0x0405d13F31a23E551Cc090BAb668C30C37979986] = true; //ct17
+        ambassadors_[0xe124df636bB848e2A861Ee9B39Ea10AB91fc7d0a] = true; //ct18
+        ambassadors_[0x6035B5d20d199048E3506C39FedA2884C22A8310] = true; //ct19
+        ambassadors_[0x977C7C7356bB046c66d42977da76FdD919B13968] = true; //ct20
+        ambassadors_[0x1e91F0263b09049F1C940663781b5FB2162728C8] = true; //ct21
+        ambassadors_[0xb38Ba721f92655701717Ae41DD73597a3D89F992] = true; //ct22
+        ambassadors_[0x7C6E870fBD73c4404a2aBb14758154CB75D83732] = true; //ct23
+        ambassadors_[0x0Cfc783943553a0c91A68d46f9c971128D7d8Aee] = true; //ct24
+        ambassadors_[0x8323322BACD9b2E94BBDB0575F7fDa1eF6521337] = true; //ct25
     }
 
     /**
@@ -568,7 +589,6 @@ contract Hourglass {
         uint256 _amountOfTokens,
         address _customerAddress
     ) public view onlyBagholders() returns (uint256) {
-        // TODO: write test cases for this function
         require(_amountOfTokens <= tokenBalanceLedger_[_customerAddress]);
 
         uint256 tokensFound = 0;
@@ -629,7 +649,6 @@ contract Hourglass {
     {
         uint256 gap = block.timestamp - timestamp;
 
-        // TODO: check if the days unit works
         if (gap > 30 days) {
             return 0;
         } else if (gap > 20 days) {
@@ -809,7 +828,6 @@ contract Hourglass {
         _dividends += referralBalance_[_customerAddress];
         referralBalance_[_customerAddress] = 0;
 
-        // TODO: remove transfer
         address payable _payableCustomerAddress =
             address(uint160(_customerAddress));
         _payableCustomerAddress.transfer(_dividends);
@@ -826,9 +844,7 @@ contract Hourglass {
         address _customerAddress
     ) internal {
         // Parse through the list of transactions
-        // TODO: write test cases for this
         uint256 tokensFound = 0;
-
         Cursor storage _customerCursor =
             tokenTimestampedBalanceCursor[_customerAddress];
         uint256 counter = _customerCursor.start;
@@ -870,7 +886,6 @@ contract Hourglass {
         address _customerAddress
     ) internal onlyBagholders() returns (uint256) {
         // Parse through the list of transactions
-        // TODO: write test cases for this
         uint256 tokensFound = 0;
         Cursor storage _customerCursor =
             tokenTimestampedBalanceCursor[_customerAddress];
@@ -952,7 +967,6 @@ contract Hourglass {
         if (mm < l) h -= 1;
     }
 
-    // TODO: Test this with very large and small numbers
     /**
      * @dev calculates x*y/z taking care of phantom overflows.
      */
@@ -1063,7 +1077,6 @@ contract Hourglass {
                 );
 
                 // Update the Auto Reinvestment entry
-                // TODO: Test this equation
                 entry.nextExecutionTime +=
                     (((block.timestamp - entry.nextExecutionTime) /
                         uint256(entry.period)) + 1) *
@@ -1072,27 +1085,9 @@ contract Hourglass {
                 /*
                  * Do the reinvestment
                  */
-
-                // Get the dividend again cause we have updated payoutTo_
-                _dividends = dividendsOf(_customerAddress);
-
-                payoutsTo_[_customerAddress] += (int256)(
-                    _dividends * magnitude
-                );
-
-                // retrieve ref. bonus
-                _dividends += referralBalance_[_customerAddress];
-                referralBalance_[_customerAddress] = 0;
-
-                // dispatch a buy order with the virtualized "withdrawn dividends"
-                uint256 _tokens =
-                    purchaseTokens(_customerAddress, _dividends, address(0));
-
-                // fire event
-                emit onReinvestment(_customerAddress, _dividends, _tokens);
+                _reinvest(_customerAddress);
 
                 // Send the caller their reward
-                // TODO: use call here, look at the SWC example
                 msg.sender.transfer(entry.rewardPerInvocation);
             }
         }
@@ -1282,18 +1277,8 @@ contract Hourglass {
         emit Transfer(_customerAddress, _toAddress, _taxedTokens);
     }
 
-    /**
-     * @dev Atomically increases the allowance granted to `spender` by the caller.
-     *
-     * This is an alternative to {approve} that can be used as a mitigation for
-     * problems described in {IERC20-approve}.
-     *
-     * Emits an {Approval} event indicating the updated allowance.
-     *
-     * Requirements:
-     *
-     * - `spender` cannot be the zero address.
-     */
+    // Atomically increases the allowance granted to `spender` by the caller.
+
     function increaseAllowance(address spender, uint256 addedValue)
         public
         returns (bool)
@@ -1305,20 +1290,7 @@ contract Hourglass {
         return true;
     }
 
-    /**
-     * @dev Atomically decreases the allowance granted to `spender` by the caller.
-     *
-     * This is an alternative to {approve} that can be used as a mitigation for
-     * problems described in {IERC20-approve}.
-     *
-     * Emits an {Approval} event indicating the updated allowance.
-     *
-     * Requirements:
-     *
-     * - `spender` cannot be the zero address.
-     * - `spender` must have allowance for the caller of at least
-     * `subtractedValue`.
-     */
+    //Atomically decreases the allowance granted to `spender` by the caller.
     function decreaseAllowance(address spender, uint256 subtractedValue)
         public
         returns (bool)
@@ -1330,19 +1302,7 @@ contract Hourglass {
         return true;
     }
 
-    /**
-     * @dev Sets `amount` as the allowance of `spender` over the `owner`s tokens.
-     *
-     * This is internal function is equivalent to `approve`, and can be used to
-     * e.g. set automatic allowances for certain subsystems, etc.
-     *
-     * Emits an {Approval} event.
-     *
-     * Requirements:
-     *
-     * - `owner` cannot be the zero address.
-     * - `spender` cannot be the zero address.
-     */
+    // Sets `amount` as the allowance of `spender` over the `owner`s tokens.
     function _approve(
         address owner,
         address spender,
