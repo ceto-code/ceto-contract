@@ -6,7 +6,6 @@ https://crystalelephant.net/whitepaper
 ## Documentation
 [Hourglass]: #Hourglass
 [Hourglass-onlyBagholders--]: #Hourglass-onlyBagholders--
-[Hourglass-onlyStronghands--]: #Hourglass-onlyStronghands--
 [Hourglass-onlyAdministrator--]: #Hourglass-onlyAdministrator--
 [Hourglass-antiEarlyWhale-uint256-]: #Hourglass-antiEarlyWhale-uint256-
 [Hourglass-name-string]: #Hourglass-name-string
@@ -39,15 +38,13 @@ https://crystalelephant.net/whitepaper
 [Hourglass-reinvest-bool-uint24-uint256-uint256-]: #Hourglass-reinvest-bool-uint24-uint256-uint256-
 [Hourglass-exit--]: #Hourglass-exit--
 [Hourglass-withdraw--]: #Hourglass-withdraw--
-[Hourglass-_updateLedgerForTransfer-uint256-address-]: #Hourglass-_updateLedgerForTransfer-uint256-address-
-[Hourglass-calculateAveragePenalty-uint256-address-]: #Hourglass-calculateAveragePenalty-uint256-address-
-[Hourglass-executeAveragePenalty-uint256-address-]: #Hourglass-executeAveragePenalty-uint256-address-
-[Hourglass-_calculatePenalty-uint256-]: #Hourglass-_calculatePenalty-uint256-
 [Hourglass-sell-uint256-]: #Hourglass-sell-uint256-
 [Hourglass-disableInitialStage--]: #Hourglass-disableInitialStage--
 [Hourglass-setAdministrator-address-bool-]: #Hourglass-setAdministrator-address-bool-
 [Hourglass-setStakingRequirement-uint256-]: #Hourglass-setStakingRequirement-uint256-
-[Hourglass-setReferrals-address-bytes32-]: #Hourglass-setReferrals-address-bytes32-
+[Hourglass-setName-string-]: #Hourglass-setName-string-
+[Hourglass-setSymbol-string-]: #Hourglass-setSymbol-string-
+[Hourglass-setReferralName-bytes32-]: #Hourglass-setReferralName-bytes32-
 [Hourglass-getReferralAddressForName-bytes32-]: #Hourglass-getReferralAddressForName-bytes32-
 [Hourglass-getReferralNameForAddress-address-]: #Hourglass-getReferralNameForAddress-address-
 [Hourglass-getReferralBalance--]: #Hourglass-getReferralBalance--
@@ -65,14 +62,20 @@ https://crystalelephant.net/whitepaper
 [Hourglass-calculateTokensReinvested--]: #Hourglass-calculateTokensReinvested--
 [Hourglass-calculateTronReceived-uint256-]: #Hourglass-calculateTronReceived-uint256-
 [Hourglass-calculateTronTransferred-uint256-]: #Hourglass-calculateTronTransferred-uint256-
-[Hourglass-purchaseTokens-address-uint256-address-]: #Hourglass-purchaseTokens-address-uint256-address-
-[Hourglass-_withdraw-address-]: #Hourglass-_withdraw-address-
+[Hourglass-calculateAveragePenalty-uint256-address-]: #Hourglass-calculateAveragePenalty-uint256-address-
+[Hourglass-_calculatePenalty-uint256-]: #Hourglass-_calculatePenalty-uint256-
 [Hourglass-tronToTokens_-uint256-]: #Hourglass-tronToTokens_-uint256-
 [Hourglass-tokensToTron_-uint256-]: #Hourglass-tokensToTron_-uint256-
+[Hourglass-purchaseTokens-address-uint256-address-]: #Hourglass-purchaseTokens-address-uint256-address-
+[Hourglass-_reinvest-address-]: #Hourglass-_reinvest-address-
+[Hourglass-_withdraw-address-]: #Hourglass-_withdraw-address-
+[Hourglass-_updateLedgerForTransfer-uint256-address-]: #Hourglass-_updateLedgerForTransfer-uint256-address-
+[Hourglass-calculateAveragePenaltyAndUpdateLedger-uint256-address-]: #Hourglass-calculateAveragePenaltyAndUpdateLedger-uint256-address-
 [Hourglass-sqrt-uint256-]: #Hourglass-sqrt-uint256-
 [Hourglass-fullMul-uint256-uint256-]: #Hourglass-fullMul-uint256-uint256-
 [Hourglass-mulDiv-uint256-uint256-uint256-]: #Hourglass-mulDiv-uint256-uint256-uint256-
-[Hourglass-setupAutoReinvest-uint24-uint256-address-uint256-]: #Hourglass-setupAutoReinvest-uint24-uint256-address-uint256-
+[Hourglass-setupAutoReinvest-uint24-uint256-uint256-]: #Hourglass-setupAutoReinvest-uint24-uint256-uint256-
+[Hourglass-_setupAutoReinvest-uint24-uint256-address-uint256-]: #Hourglass-_setupAutoReinvest-uint24-uint256-address-uint256-
 [Hourglass-invokeAutoReinvest-address-]: #Hourglass-invokeAutoReinvest-address-
 [Hourglass-getAutoReinvestEntry--]: #Hourglass-getAutoReinvestEntry--
 [Hourglass-getAutoReinvestEntryOf-address-]: #Hourglass-getAutoReinvestEntryOf-address-
@@ -105,7 +108,6 @@ https://crystalelephant.net/whitepaper
 
 
 - [`onlyBagholders()`][Hourglass-onlyBagholders--]
-- [`onlyStronghands()`][Hourglass-onlyStronghands--]
 - [`onlyAdministrator()`][Hourglass-onlyAdministrator--]
 - [`antiEarlyWhale(uint256 _amountOfTron)`][Hourglass-antiEarlyWhale-uint256-]
 - [`fallback()`][Hourglass-fallback--]
@@ -113,15 +115,13 @@ https://crystalelephant.net/whitepaper
 - [`reinvest(bool isAutoReinvestChecked, uint24 period, uint256 rewardPerInvocation, uint256 minimumDividendValue)`][Hourglass-reinvest-bool-uint24-uint256-uint256-]
 - [`exit()`][Hourglass-exit--]
 - [`withdraw()`][Hourglass-withdraw--]
-- [`_updateLedgerForTransfer(uint256 _amountOfTokens, address _customerAddress)`][Hourglass-_updateLedgerForTransfer-uint256-address-]
-- [`calculateAveragePenalty(uint256 _amountOfTokens, address _customerAddress)`][Hourglass-calculateAveragePenalty-uint256-address-]
-- [`executeAveragePenalty(uint256 _amountOfTokens, address _customerAddress)`][Hourglass-executeAveragePenalty-uint256-address-]
-- [`_calculatePenalty(uint256 timestamp)`][Hourglass-_calculatePenalty-uint256-]
 - [`sell(uint256 _amountOfTokens)`][Hourglass-sell-uint256-]
 - [`disableInitialStage()`][Hourglass-disableInitialStage--]
 - [`setAdministrator(address _identifier, bool _status)`][Hourglass-setAdministrator-address-bool-]
 - [`setStakingRequirement(uint256 _amountOfTokens)`][Hourglass-setStakingRequirement-uint256-]
-- [`setReferrals(address ref_address, bytes32 ref_name)`][Hourglass-setReferrals-address-bytes32-]
+- [`setName(string _name)`][Hourglass-setName-string-]
+- [`setSymbol(string _symbol)`][Hourglass-setSymbol-string-]
+- [`setReferralName(bytes32 ref_name)`][Hourglass-setReferralName-bytes32-]
 - [`getReferralAddressForName(bytes32 ref_name)`][Hourglass-getReferralAddressForName-bytes32-]
 - [`getReferralNameForAddress(address ref_address)`][Hourglass-getReferralNameForAddress-address-]
 - [`getReferralBalance()`][Hourglass-getReferralBalance--]
@@ -139,14 +139,20 @@ https://crystalelephant.net/whitepaper
 - [`calculateTokensReinvested()`][Hourglass-calculateTokensReinvested--]
 - [`calculateTronReceived(uint256 _tokensToSell)`][Hourglass-calculateTronReceived-uint256-]
 - [`calculateTronTransferred(uint256 _amountOfTokens)`][Hourglass-calculateTronTransferred-uint256-]
-- [`purchaseTokens(address _customerAddress, uint256 _incomingTron, address _referredBy)`][Hourglass-purchaseTokens-address-uint256-address-]
-- [`_withdraw(address _customerAddress)`][Hourglass-_withdraw-address-]
+- [`calculateAveragePenalty(uint256 _amountOfTokens, address _customerAddress)`][Hourglass-calculateAveragePenalty-uint256-address-]
+- [`_calculatePenalty(uint256 timestamp)`][Hourglass-_calculatePenalty-uint256-]
 - [`tronToTokens_(uint256 _tron)`][Hourglass-tronToTokens_-uint256-]
 - [`tokensToTron_(uint256 _tokens)`][Hourglass-tokensToTron_-uint256-]
+- [`purchaseTokens(address _customerAddress, uint256 _incomingTron, address _referredBy)`][Hourglass-purchaseTokens-address-uint256-address-]
+- [`_reinvest(address _customerAddress)`][Hourglass-_reinvest-address-]
+- [`_withdraw(address _customerAddress)`][Hourglass-_withdraw-address-]
+- [`_updateLedgerForTransfer(uint256 _amountOfTokens, address _customerAddress)`][Hourglass-_updateLedgerForTransfer-uint256-address-]
+- [`calculateAveragePenaltyAndUpdateLedger(uint256 _amountOfTokens, address _customerAddress)`][Hourglass-calculateAveragePenaltyAndUpdateLedger-uint256-address-]
 - [`sqrt(uint256 x)`][Hourglass-sqrt-uint256-]
 - [`fullMul(uint256 x, uint256 y)`][Hourglass-fullMul-uint256-uint256-]
 - [`mulDiv(uint256 x, uint256 y, uint256 z)`][Hourglass-mulDiv-uint256-uint256-uint256-]
-- [`setupAutoReinvest(uint24 period, uint256 rewardPerInvocation, address customerAddress, uint256 minimumDividendValue)`][Hourglass-setupAutoReinvest-uint24-uint256-address-uint256-]
+- [`setupAutoReinvest(uint24 period, uint256 rewardPerInvocation, uint256 minimumDividendValue)`][Hourglass-setupAutoReinvest-uint24-uint256-uint256-]
+- [`_setupAutoReinvest(uint24 period, uint256 rewardPerInvocation, address customerAddress, uint256 minimumDividendValue)`][Hourglass-_setupAutoReinvest-uint24-uint256-address-uint256-]
 - [`invokeAutoReinvest(address _customerAddress)`][Hourglass-invokeAutoReinvest-address-]
 - [`getAutoReinvestEntry()`][Hourglass-getAutoReinvestEntry--]
 - [`getAutoReinvestEntryOf(address _customerAddress)`][Hourglass-getAutoReinvestEntryOf-address-]
@@ -169,12 +175,6 @@ https://crystalelephant.net/whitepaper
 - [`onAutoReinvestmentStop(address customerAddress)`][Hourglass-onAutoReinvestmentStop-address-]
 
 ### <span id="Hourglass-onlyBagholders--"></span> `onlyBagholders()`
-
-
-
-
-
-### <span id="Hourglass-onlyStronghands--"></span> `onlyStronghands()`
 
 
 
@@ -223,30 +223,6 @@ Withdraws all of the callers earnings.
 
 
 
-### <span id="Hourglass-_updateLedgerForTransfer-uint256-address-"></span> `_updateLedgerForTransfer(uint256 _amountOfTokens, address _customerAddress)` (internal)
-
-Update ledger after transferring x tokens
-
-
-
-### <span id="Hourglass-calculateAveragePenalty-uint256-address-"></span> `calculateAveragePenalty(uint256 _amountOfTokens, address _customerAddress) → uint256` (public)
-
-Calculate the withholding penalty for selling x tokens
-
-
-
-### <span id="Hourglass-executeAveragePenalty-uint256-address-"></span> `executeAveragePenalty(uint256 _amountOfTokens, address _customerAddress) → uint256` (public)
-
-Calculate the withholding penalty for selling x tokens and edit the timestamped ledger
-
-
-
-### <span id="Hourglass-_calculatePenalty-uint256-"></span> `_calculatePenalty(uint256 timestamp) → uint256` (public)
-
-Calculate the early exit penalty for selling after x days
-
-
-
 ### <span id="Hourglass-sell-uint256-"></span> `sell(uint256 _amountOfTokens)` (public)
 
 Liquifies tokens to tron.
@@ -271,7 +247,19 @@ Precautionary measures in case we need to adjust the masternode rate.
 
 
 
-### <span id="Hourglass-setReferrals-address-bytes32-"></span> `setReferrals(address ref_address, bytes32 ref_name) → bool` (public)
+### <span id="Hourglass-setName-string-"></span> `setName(string _name)` (public)
+
+If we want to rebrand, we can.
+
+
+
+### <span id="Hourglass-setSymbol-string-"></span> `setSymbol(string _symbol)` (public)
+
+If we want to rebrand, we can.
+
+
+
+### <span id="Hourglass-setReferralName-bytes32-"></span> `setReferralName(bytes32 ref_name) → bool` (public)
 
 
 
@@ -385,15 +373,15 @@ Function for the frontend to dynamically retrieve the price scaling of sell orde
 
 
 
-### <span id="Hourglass-purchaseTokens-address-uint256-address-"></span> `purchaseTokens(address _customerAddress, uint256 _incomingTron, address _referredBy) → uint256` (internal)
+### <span id="Hourglass-calculateAveragePenalty-uint256-address-"></span> `calculateAveragePenalty(uint256 _amountOfTokens, address _customerAddress) → uint256` (public)
+
+Calculate the early exit penalty for selling x tokens
 
 
 
+### <span id="Hourglass-_calculatePenalty-uint256-"></span> `_calculatePenalty(uint256 timestamp) → uint256` (public)
 
-
-### <span id="Hourglass-_withdraw-address-"></span> `_withdraw(address _customerAddress)` (internal)
-
-
+Calculate the early exit penalty for selling after x days
 
 
 
@@ -408,6 +396,36 @@ Some conversions occurred to prevent decimal errors or underflows / overflows in
 
 Calculate token sell value.
 Some conversions occurred to prevent decimal errors or underflows / overflows in solidity code.
+
+
+
+### <span id="Hourglass-purchaseTokens-address-uint256-address-"></span> `purchaseTokens(address _customerAddress, uint256 _incomingTron, address _referredBy) → uint256` (internal)
+
+
+
+
+
+### <span id="Hourglass-_reinvest-address-"></span> `_reinvest(address _customerAddress)` (internal)
+
+
+
+
+
+### <span id="Hourglass-_withdraw-address-"></span> `_withdraw(address _customerAddress)` (internal)
+
+
+
+
+
+### <span id="Hourglass-_updateLedgerForTransfer-uint256-address-"></span> `_updateLedgerForTransfer(uint256 _amountOfTokens, address _customerAddress)` (internal)
+
+Update ledger after transferring x tokens
+
+
+
+### <span id="Hourglass-calculateAveragePenaltyAndUpdateLedger-uint256-address-"></span> `calculateAveragePenaltyAndUpdateLedger(uint256 _amountOfTokens, address _customerAddress) → uint256` (internal)
+
+Calculate the early exit penalty for selling x tokens and edit the timestamped ledger
 
 
 
@@ -429,7 +447,13 @@ calculates x*y and outputs a emulated 512bit number as l being the lower 256bit 
 
 calculates x*y/z taking care of phantom overflows.
 
-### <span id="Hourglass-setupAutoReinvest-uint24-uint256-address-uint256-"></span> `setupAutoReinvest(uint24 period, uint256 rewardPerInvocation, address customerAddress, uint256 minimumDividendValue)` (internal)
+### <span id="Hourglass-setupAutoReinvest-uint24-uint256-uint256-"></span> `setupAutoReinvest(uint24 period, uint256 rewardPerInvocation, uint256 minimumDividendValue)` (public)
+
+
+
+
+
+### <span id="Hourglass-_setupAutoReinvest-uint24-uint256-address-uint256-"></span> `_setupAutoReinvest(uint24 period, uint256 rewardPerInvocation, address customerAddress, uint256 minimumDividendValue)` (internal)
 
 
 
@@ -504,49 +528,19 @@ Requirements:
 
 
 
-Atomically increases the allowance granted to `spender` by the caller.
 
-This is an alternative to {approve} that can be used as a mitigation for
-problems described in {IERC20-approve}.
-
-Emits an {Approval} event indicating the updated allowance.
-
-Requirements:
-
-- `spender` cannot be the zero address.
 
 ### <span id="Hourglass-decreaseAllowance-address-uint256-"></span> `decreaseAllowance(address spender, uint256 subtractedValue) → bool` (public)
 
 
 
-Atomically decreases the allowance granted to `spender` by the caller.
 
-This is an alternative to {approve} that can be used as a mitigation for
-problems described in {IERC20-approve}.
-
-Emits an {Approval} event indicating the updated allowance.
-
-Requirements:
-
-- `spender` cannot be the zero address.
-- `spender` must have allowance for the caller of at least
-`subtractedValue`.
 
 ### <span id="Hourglass-_approve-address-address-uint256-"></span> `_approve(address owner, address spender, uint256 value)` (internal)
 
 
 
-Sets `amount` as the allowance of `spender` over the `owner`s tokens.
 
-This is internal function is equivalent to `approve`, and can be used to
-e.g. set automatic allowances for certain subsystems, etc.
-
-Emits an {Approval} event.
-
-Requirements:
-
-- `owner` cannot be the zero address.
-- `spender` cannot be the zero address.
 
 ### <span id="Hourglass-onTokenPurchase-address-uint256-uint256-address-"></span> `onTokenPurchase(address customerAddress, uint256 incomingTron, uint256 tokensMinted, address referredBy)`
 
