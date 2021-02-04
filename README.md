@@ -1,3 +1,4 @@
+![alt text](https://github.com/ceto-code/ceto-contract/raw/main/logo.png "CETO")
 # Crystal Elephant Token
 
 ## Whitepaper
