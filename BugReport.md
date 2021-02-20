@@ -23,8 +23,6 @@ Due to the corrupted state of the contract it was possible for anyone to drain t
 
 __Note__: After the above community member withdrew 1.1M TRX from the contract the remaining the 55930 TRX were withdrawn by our core team(`TBQaYFAjL6ZzQW199oG7Du8GcWtZmK5yPH`) following the same method. These funds will also be directly transfered to the new contract once deployed.
 
-We are preparing a more indepth report along with the patched up contract source code, both of which will be released in the next 24hrs.
-
 ## Detailed Analysis
 
 The state of the contract before the transaction [`83f97831ede76755f31afec81c5a52ab62434cd3bc75bb3e6c4894447f98b842`](https://tronscan.org/#/transaction/83f97831ede76755f31afec81c5a52ab62434cd3bc75bb3e6c4894447f98b842) was as follows
@@ -150,5 +148,13 @@ which is same as the value that is logged in the events for the transaction as s
 }
 ```
 
-This very huge value of dividends led to huge amount of tokens being minted and very large dividend earnings for all the token holders. This also led to very high token prices. These very high token prices allowed one to set a very high autoReinvestment reward for the a account and then run the invokeAutoReinvestment function using another account claiming the rewards.
+### How were the funds drained?
+This very huge value of dividends led to huge amount of tokens being minted and very large dividend earnings for all the token holders. This also led to very high token prices. These very high token prices allowed one to set a very high autoReinvestment reward for one account and then run the invokeAutoReinvestment function using another account claiming the rewards. In short it was done so that no bad actor would drain the funds and it wouldn't have been possible if the contract state wasnt corrupted.
+
+## Upgraded Contract
+This is [first draft](https://github.com/ceto-code/ceto-contract/blob/main/v2/Hourglass.sol) of the upgraded contract.
+
+## Current Balances for all Holders
+Please refer to this [sheet](https://docs.google.com/spreadsheets/d/1qFis6UH45kf1TXsHhOAtut5TGtEMwCwSv0w9etknFJY/edit?usp=sharing). The new contract will be initialised with this state.
+
 
