@@ -16,7 +16,7 @@ uint256 _dividends = dividendsOf(_customerAddress);
 ```
 fixes the bug
 
-__Note__: This bug only seeped in cause we didn't consider referral incomes in our test cases. We are writing the all the test cases again including that now.
+__Note__: This bug only seeped in cause we didn't consider referral incomes in our test cases. We are writing all the test cases again including referral incomes now.
 
 ### Where did the funds go?
 Due to the corrupted state of the contract it was possible for anyone to drain the funds using the function invokeAutoReinvest which was seen as a cause of concern by the a community member(`TSQe2GMoX4b8oDDMDJPSZeF57NZvz8VTpc`) who drained the funds and is currently holding them as an escrow while we prepare a patched up contract with everyones stake the same as before the buggy transaction. After the new contract is deployed the community member will transfer the funds direclty to it. We will be releasing the contract in the community for public scrutiny a day prior to its deployment. 
