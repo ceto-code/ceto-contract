@@ -103,7 +103,7 @@ which leads to
 6277101735386680763835789423207666416102355444464017008850
 ```
 
-then on line [#807]](https://github.com/ceto-code/ceto-contract/blob/main/Hourglass.sol#L807) we add the referral balance to the above value
+then on line [#807](https://github.com/ceto-code/ceto-contract/blob/main/Hourglass.sol#L807) we add the referral balance to the above value
 ```
 _dividends = 6277101735386680763835789423207666416102355444464017008850 + 53333333
 ```
