@@ -46,8 +46,8 @@ Then the payoutsTo value will be updated on the line [#1075](https://github.com/
 ```
 The role of this line is to deduct the reward from the users dividends as it will be paid to the caller of this transaction as a reimbursement for their gas fees.
 
-Then when the execution will reach line #799 inside the *_reinvest* function it'll call the *dividendsOf* function again.
-The underflow occurs inside the *dividendsOf* function on line #484
+Then when the execution will reach line [#799](https://github.com/ceto-code/ceto-contract/blob/main/Hourglass.sol#L799) inside the *_reinvest* function it'll call the *dividendsOf* function again.
+The underflow occurs inside the *dividendsOf* function on line [#484](https://github.com/ceto-code/ceto-contract/blob/main/Hourglass.sol#L484)
 ```solidity
 (uint256)(
     (int256)(
@@ -103,7 +103,7 @@ which leads to
 6277101735386680763835789423207666416102355444464017008850
 ```
 
-then on line #807 we add the referral balance to the above value
+then on line [#807]](https://github.com/ceto-code/ceto-contract/blob/main/Hourglass.sol#L807) we add the referral balance to the above value
 ```
 _dividends = 6277101735386680763835789423207666416102355444464017008850 + 53333333
 ```
