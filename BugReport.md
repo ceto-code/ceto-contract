@@ -1,6 +1,6 @@
 # CETO Bug Report
 
-Based on preliminary analysis the state of the contract was corrupted in the transaction id [`83f97831ede76755f31afec81c5a52ab62434cd3bc75bb3e6c4894447f98b842`](https://tronscan.org/#/transaction/83f97831ede76755f31afec81c5a52ab62434cd3bc75bb3e6c4894447f98b842) when the autoreinvest bot `TSQe2GMoX4b8oDDMDJPSZeF57NZvz8VTpc` called the `invokeAutoReinvest` function for the account `TGLe1dg2DGn9qUxxXATx5htdJrAqudKuTj`
+Based on our analysis the state of the contract was corrupted in the transaction id [`83f97831ede76755f31afec81c5a52ab62434cd3bc75bb3e6c4894447f98b842`](https://tronscan.org/#/transaction/83f97831ede76755f31afec81c5a52ab62434cd3bc75bb3e6c4894447f98b842) due to an underflow error when the autoreinvest bot `TSQe2GMoX4b8oDDMDJPSZeF57NZvz8VTpc` called the `invokeAutoReinvest` function for the account `TGLe1dg2DGn9qUxxXATx5htdJrAqudKuTj`
 
 The error was on the line [#1064](https://github.com/ceto-code/ceto-contract/blob/main/Hourglass.sol#L1064). We were checking if the sum of the dividends and the referral balance was greater than the rewardPerInvocation and the minimumDividendValue amount, this led to the case in which the dividends in themselves were lesser than the reward which led to a underflow error in the function dividendsOf called on line [#799](https://github.com/ceto-code/ceto-contract/blob/main/Hourglass.sol#L799) resulting in a huge dividend value.
 
