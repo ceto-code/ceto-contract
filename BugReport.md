@@ -23,4 +23,4 @@ Due to the corrupted state of the contract it was possible for anyone to drain t
 
 __Note__: After the above community member withdrew 1.1M TRX from the contract the remaining the 55930 TRX were withdrawn by our core team(`TBQaYFAjL6ZzQW199oG7Du8GcWtZmK5yPH`) following the same method. These funds will also be directly transfered to the new contract once deployed.
 
-We are preparing a more indepth report along with the patched up contract both of which will be released in the next 24hrs.
+We are preparing a more indepth report along with the patched up contract source code both of which will be released in the next 24hrs.
