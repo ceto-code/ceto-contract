@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity 0.5.14;
 
 /*
 :'######::'########:'########::'#######::
@@ -158,119 +158,102 @@ contract Hourglass {
         address owner = msg.sender;
         administrators[owner] = true;
 
-        // Set the old state of the contract
+        // Set the old state of the v1 contract(TLqB1kuXuKeKzeGkvrZjpLA6Kz6pN2LHj5)
         referralBalance_[0x45De5dFb0E13d6933Afed37870BE6eaf87b4cDEe] = 53333333;
         referralIncome_[0x45De5dFb0E13d6933Afed37870BE6eaf87b4cDEe] = 54999999;
 
         tokenSupply_ = 151524101126;
         profitPerShare_ = 24809137937556660190;
 
-        // The rest of the state was too large to fit in the contract itself 
+        tokenBalanceLedger_[0x5716d088a6E3f30FdC8c08eA5c519C103D2BBC24] = 57883882539;
+        tokenBalanceLedger_[0x45De5dFb0E13d6933Afed37870BE6eaf87b4cDEe] = 602987747;
+        tokenBalanceLedger_[0x977C7C7356bB046c66d42977da76FdD919B13968] = 5015050398;
+        tokenBalanceLedger_[0xfafAa13890452fA444959798302ff8A2d207915d] = 11276741563;
+        tokenBalanceLedger_[0xc5f6Bb13B0C2B293391195D04945c6c85708C61a] = 642713425;
+        tokenBalanceLedger_[0xc0c6B3d8F93C348474Aee5328d7aB9BECB7dAeAc] = 8953079794;
+        tokenBalanceLedger_[0x0Fc480eB1fC590a37647275529B875417C1e4f06] = 4444456768;
+        tokenBalanceLedger_[0xdafD17E58f48D462BC7F271A3eee7486B419A632] = 6114951651;
+        tokenBalanceLedger_[0x0Cfc783943553a0c91A68d46f9c971128D7d8Aee] = 241572748;
+        tokenBalanceLedger_[0x47f06D6269B2fca8238326C26Ef8D5663A2DEde8] = 950502624;
+        tokenBalanceLedger_[0x7C6E870fBD73c4404a2aBb14758154CB75D83732] = 236912348;
+        tokenBalanceLedger_[0x1e8fD2c59794DCC4Da828A3bCdb60d89299E3cF9] = 1052830363;
+        tokenBalanceLedger_[0x6035B5d20d199048E3506C39FedA2884C22A8310] = 2487705468;
+        tokenBalanceLedger_[0x0405d13F31a23E551Cc090BAb668C30C37979986] = 1827355259;
+        tokenBalanceLedger_[0x8f00412B7DecB40b09A2be04EB0176104BDa6345] = 856616103;
+        tokenBalanceLedger_[0x0E8316560ADa85933601C4Ca174E1b4846B8893e] = 850807572;
+        tokenBalanceLedger_[0xB0d88b3eC207239Da648789cc23ECFda8906850d] = 4094486753;
+        tokenBalanceLedger_[0x9814FF84B339A05eD9012669f3c83cD06B51c863] = 3458425180;
+        tokenBalanceLedger_[0x1ECE8b43D8Bf4F191Db604830c2d53476BE5e8e0] = 5131417222;
+        tokenBalanceLedger_[0xb38Ba721f92655701717Ae41DD73597a3D89F992] = 716335014;
+        tokenBalanceLedger_[0xe124df636bB848e2A861Ee9B39Ea10AB91fc7d0a] = 171075007;
+        tokenBalanceLedger_[0x1e91F0263b09049F1C940663781b5FB2162728C8] = 3448791131;
+        tokenBalanceLedger_[0x31cc9E04D9E53ba0b30Abb39c66496CeA879A90f] = 90124572;
+        tokenBalanceLedger_[0x2Ea8C9bcB691B5b0286Af71Bc8C3d7083EF59b53] = 169312696;
+        tokenBalanceLedger_[0xC514D37EA3f613aa669dD6f4B6daa8795751006F] = 12628124256;
+        tokenBalanceLedger_[0x84A3048C863aa9bf7b58e1D754AA27911bEbCDC7] = 13917867;
+        tokenBalanceLedger_[0xe974cB98FBd4980F27C80fb6Dc27067F6B04b1C7] = 583345415;
+        tokenBalanceLedger_[0xEa58c4810fA0c2328489254B70D43EBEC578dC5c] = 2904600051;
+        tokenBalanceLedger_[0x76d7cBe6D51c5Aea8147DC11Fe474a840fc71Ce2] = 718272079;
+        tokenBalanceLedger_[0xcBf2B91779a3e2C82026D3575A9C1E0aAAa99a9D] = 120202208;
+        tokenBalanceLedger_[0xdd69F5609Bd36161Ac0793Cb92B4c0BaE9993e72] = 38362371;
+        tokenBalanceLedger_[0xC4E0789750295C70cdaf5d7e0006cC3d597Cd310] = 1701463986;
+        tokenBalanceLedger_[0x82305e850f648D11401738BC94Bee7ffDAC49102] = 8168548;
+        tokenBalanceLedger_[0x860a07bD229ba784aBb28ADC7fCcC796C93B49DA] = 116318686;
+        tokenBalanceLedger_[0xd0E675469aDEd5f0287Bbbf3e295807793F39bD8] = 42893518;
+        tokenBalanceLedger_[0x4CB1bA572Eb406b2F9040CDC37F380923c7e4030] = 706026551;
+        tokenBalanceLedger_[0xB4D32A4B1f1Fd35aCd0feBdE172103788f3aA8C4] = 10064176;
+        tokenBalanceLedger_[0x5D91eA5236c4C9f8615187e2909fe6137cCfA9A6] = 128103392;
+        tokenBalanceLedger_[0x23e5A169DFEBD287Ff0DF8a022d23E84E05bd97c] = 130176593;
+        tokenBalanceLedger_[0x138b8FcfCDce162CDc46C9408dcC060C74275034] = 33694503;
+        tokenBalanceLedger_[0x1D74Ce35aaa4522afB1A92eF71483656Ba9CaFc8] = 126259876;
+        tokenBalanceLedger_[0x049d9B4A5F56A2423362eEa9a3D38D8361A1FEDA] = 340536862;
+        tokenBalanceLedger_[0x4e642898D58Fa6d0EaCD689a7c1d04124848240b] = 126318679;
+        tokenBalanceLedger_[0xF7e5e236A64b09Ae9e23568B44c0607FA7682bA4] = 295852704;
+        tokenBalanceLedger_[0xb4514C4332f793619f83E854c18D208e2a10dAF4] = 155374778;
+        tokenBalanceLedger_[0x0Abc1fDb38AD29c788412d035778F852Cb7F92d7] = 10606048;
+        tokenBalanceLedger_[0x8754005064486F98BE00823406A97E0Be6956c8F] = 1241181514;
+        tokenBalanceLedger_[0xbabbb80F4Fa952DC5Cb3E862BB2de805ebcCA910] = 317870403;
+        tokenBalanceLedger_[0x96d7F56c29c0f93B9EB3f9C9BEc2aF992E58947b] = 9000;
+        tokenBalanceLedger_[0x98504FF45ddFC6708dCa1defDde972C24d8b06E3] = 2124310365;
+        tokenBalanceLedger_[0x0a0929fe4370B3f24238e758F3826Fe222C2f42A] = 117377381;
+        tokenBalanceLedger_[0x8CaA461b10e74a62baac4779a146a92d9aDa6A78] = 64043886;
+        tokenBalanceLedger_[0xE83E7818aaFfEdf78fD0cC79F050f19CE4548220] = 518260456;
+        tokenBalanceLedger_[0x099c420635b93A824066733a923C4f40E7496EA5] = 103009795;
+        tokenBalanceLedger_[0x26162173917a277b9542173E416d19d4541A8347] = 78932701;
+        tokenBalanceLedger_[0xB62FA834C321E55ff7b4e5e8e52af5532cFafE79] = 11052570;
+        tokenBalanceLedger_[0x06352daBBdD25dC08C632b55b6EAbF19C39e59aC] = 10800000;
+        tokenBalanceLedger_[0xBf0c2653bC1dF673eF990e5dEFe576EC03dbbf82] = 45851951;
+        tokenBalanceLedger_[0xB644e92718D9c9eABD59AfF1B2e97e3A6a0f42e6] = 1185917253;
+        tokenBalanceLedger_[0x9c0383459F9D122A5Ca3bad8cAB557b00B6f6862] = 2685481;
+        tokenBalanceLedger_[0x3172D0b99d5a3B7B10BF47783bD79c7B532C04Bf] = 46505150;
+        tokenBalanceLedger_[0xAACB4E7514aAaC78B7Fd8D5AFB2c1be78ad9B093] = 10800000;
+        tokenBalanceLedger_[0xB53E6eF1Bf6227B62e10c7bfca708cCFe5Edf9b4] = 38308532;
+        tokenBalanceLedger_[0x9721B94B41E0f70b8915Ba0076c2510DDBbf45aA] = 77109500;
+        tokenBalanceLedger_[0x50541e1575Ca916cD2E3713965a3367a034848b1] = 156596785;
+        tokenBalanceLedger_[0xd15edc3ce5b5f39aCF7D905E95783e52e567c408] = 34549936;
+        tokenBalanceLedger_[0xe9e20771E340b37F7F9bDA651Ac90b8fA40Ab338] = 2169272838;
+        tokenBalanceLedger_[0x1d1dfB21213495D7D6b38802019dE7A1aAF18ceE] = 22500000;
+        tokenBalanceLedger_[0x88D3971545ADDe680fB0632ddB5cCb90180a2E37] = 127800000;
+        tokenBalanceLedger_[0xF8e4B7239b1560209d35f0A00977Df63929aaa67] = 489324575;
+        tokenBalanceLedger_[0x4fA24872A199a819e3C0E39F5DE9B626F9b5bBD3] = 100080000;
+        tokenBalanceLedger_[0xB3F8280dF373B3a8591ec3A5153eD1A1FEF31708] = 13056649;
+        tokenBalanceLedger_[0xBCB15FA3d1665688C4c0A7aDcd0a0f9c73518587] = 45000000;
+        tokenBalanceLedger_[0x2C9dA8a1E706410B7c3d98DBb406A591a5ad9090] = 131491048;
+        tokenBalanceLedger_[0x0a419ee410365D16e50dbEf70978D46D69B9bF3A] = 33449796;
+        tokenBalanceLedger_[0x2CDb5347d04EBe4fe2945660B7bE63a31615A99d] = 199989659;
+        tokenBalanceLedger_[0x2680Ad9E16901bb0df63dae0637Bbc9d423E8d7b] = 98047484;
+        tokenBalanceLedger_[0x8BE9C171C64778d8BCA50a5B025744c6F29F5d60] = 50000000;
+        tokenBalanceLedger_[0x7862883C299dc195180fDaCbeBC3D31892c2F94c] = 107036119;
+        tokenBalanceLedger_[0x98fE7C915dec05edcEe970A867795d0d61a3193C] = 95063207;
+        
+        // The rest of the state was too large to fit in the constructor itself 
         // so the admin will be calling the transactions for that indivisually for each user
-        // using the functions setInitialBalanceState, setInitialCursorState, setInitialTimestampedBalanceState
-        // setInitialPayoutsState
+        // using the functions setInitialCursorState, setInitialTimestampedBalanceState
+        // and setInitialPayoutsState
         // Then the initial stage is disabled so that the admins don't keep the right to change the contract state
+
     }
 
-    /**
-     * Fallback function to handle tron that was send straight to the contract
-     * Unfortunately we cannot use a referral address this way.
-     */
-    function() external payable {
-        purchaseTokens(msg.sender, msg.value, address(0));
-    }
-
-    /**
-     * The accounts which are acting as escrows can send the money back to the contract
-     */
-    function seedFunds() public payable {}
-
-    bool public areBalanceSet = false;
-    function setInitialBalanceState() public {
-        if(!areBalanceSet){
-            tokenBalanceLedger_[0x5716d088a6E3f30FdC8c08eA5c519C103D2BBC24] = 57883882539;
-            tokenBalanceLedger_[0x45De5dFb0E13d6933Afed37870BE6eaf87b4cDEe] = 602987747;
-            tokenBalanceLedger_[0x977C7C7356bB046c66d42977da76FdD919B13968] = 5015050398;
-            tokenBalanceLedger_[0xfafAa13890452fA444959798302ff8A2d207915d] = 11276741563;
-            tokenBalanceLedger_[0xc5f6Bb13B0C2B293391195D04945c6c85708C61a] = 642713425;
-            tokenBalanceLedger_[0xc0c6B3d8F93C348474Aee5328d7aB9BECB7dAeAc] = 8953079794;
-            tokenBalanceLedger_[0x0Fc480eB1fC590a37647275529B875417C1e4f06] = 4444456768;
-            tokenBalanceLedger_[0xdafD17E58f48D462BC7F271A3eee7486B419A632] = 6114951651;
-            tokenBalanceLedger_[0x0Cfc783943553a0c91A68d46f9c971128D7d8Aee] = 241572748;
-            tokenBalanceLedger_[0x47f06D6269B2fca8238326C26Ef8D5663A2DEde8] = 950502624;
-            tokenBalanceLedger_[0x7C6E870fBD73c4404a2aBb14758154CB75D83732] = 236912348;
-            tokenBalanceLedger_[0x1e8fD2c59794DCC4Da828A3bCdb60d89299E3cF9] = 1052830363;
-            tokenBalanceLedger_[0x6035B5d20d199048E3506C39FedA2884C22A8310] = 2487705468;
-            tokenBalanceLedger_[0x0405d13F31a23E551Cc090BAb668C30C37979986] = 1827355259;
-            tokenBalanceLedger_[0x8f00412B7DecB40b09A2be04EB0176104BDa6345] = 856616103;
-            tokenBalanceLedger_[0x0E8316560ADa85933601C4Ca174E1b4846B8893e] = 850807572;
-            tokenBalanceLedger_[0xB0d88b3eC207239Da648789cc23ECFda8906850d] = 4094486753;
-            tokenBalanceLedger_[0x9814FF84B339A05eD9012669f3c83cD06B51c863] = 3458425180;
-            tokenBalanceLedger_[0x1ECE8b43D8Bf4F191Db604830c2d53476BE5e8e0] = 5131417222;
-            tokenBalanceLedger_[0xb38Ba721f92655701717Ae41DD73597a3D89F992] = 716335014;
-            tokenBalanceLedger_[0xe124df636bB848e2A861Ee9B39Ea10AB91fc7d0a] = 171075007;
-            tokenBalanceLedger_[0x1e91F0263b09049F1C940663781b5FB2162728C8] = 3448791131;
-            tokenBalanceLedger_[0x31cc9E04D9E53ba0b30Abb39c66496CeA879A90f] = 90124572;
-            tokenBalanceLedger_[0x2Ea8C9bcB691B5b0286Af71Bc8C3d7083EF59b53] = 169312696;
-            tokenBalanceLedger_[0xC514D37EA3f613aa669dD6f4B6daa8795751006F] = 12628124256;
-            tokenBalanceLedger_[0x84A3048C863aa9bf7b58e1D754AA27911bEbCDC7] = 13917867;
-            tokenBalanceLedger_[0xe974cB98FBd4980F27C80fb6Dc27067F6B04b1C7] = 583345415;
-            tokenBalanceLedger_[0xEa58c4810fA0c2328489254B70D43EBEC578dC5c] = 2904600051;
-            tokenBalanceLedger_[0x76d7cBe6D51c5Aea8147DC11Fe474a840fc71Ce2] = 718272079;
-            tokenBalanceLedger_[0xcBf2B91779a3e2C82026D3575A9C1E0aAAa99a9D] = 120202208;
-            tokenBalanceLedger_[0xdd69F5609Bd36161Ac0793Cb92B4c0BaE9993e72] = 38362371;
-            tokenBalanceLedger_[0xC4E0789750295C70cdaf5d7e0006cC3d597Cd310] = 1701463986;
-            tokenBalanceLedger_[0x82305e850f648D11401738BC94Bee7ffDAC49102] = 8168548;
-            tokenBalanceLedger_[0x860a07bD229ba784aBb28ADC7fCcC796C93B49DA] = 116318686;
-            tokenBalanceLedger_[0xd0E675469aDEd5f0287Bbbf3e295807793F39bD8] = 42893518;
-            tokenBalanceLedger_[0x4CB1bA572Eb406b2F9040CDC37F380923c7e4030] = 706026551;
-            tokenBalanceLedger_[0xB4D32A4B1f1Fd35aCd0feBdE172103788f3aA8C4] = 10064176;
-            tokenBalanceLedger_[0x5D91eA5236c4C9f8615187e2909fe6137cCfA9A6] = 128103392;
-            tokenBalanceLedger_[0x23e5A169DFEBD287Ff0DF8a022d23E84E05bd97c] = 130176593;
-            tokenBalanceLedger_[0x138b8FcfCDce162CDc46C9408dcC060C74275034] = 33694503;
-            tokenBalanceLedger_[0x1D74Ce35aaa4522afB1A92eF71483656Ba9CaFc8] = 126259876;
-            tokenBalanceLedger_[0x049d9B4A5F56A2423362eEa9a3D38D8361A1FEDA] = 340536862;
-            tokenBalanceLedger_[0x4e642898D58Fa6d0EaCD689a7c1d04124848240b] = 126318679;
-            tokenBalanceLedger_[0xF7e5e236A64b09Ae9e23568B44c0607FA7682bA4] = 295852704;
-            tokenBalanceLedger_[0xb4514C4332f793619f83E854c18D208e2a10dAF4] = 155374778;
-            tokenBalanceLedger_[0x0Abc1fDb38AD29c788412d035778F852Cb7F92d7] = 10606048;
-            tokenBalanceLedger_[0x8754005064486F98BE00823406A97E0Be6956c8F] = 1241181514;
-            tokenBalanceLedger_[0xbabbb80F4Fa952DC5Cb3E862BB2de805ebcCA910] = 317870403;
-            tokenBalanceLedger_[0x96d7F56c29c0f93B9EB3f9C9BEc2aF992E58947b] = 9000;
-            tokenBalanceLedger_[0x98504FF45ddFC6708dCa1defDde972C24d8b06E3] = 2124310365;
-            tokenBalanceLedger_[0x0a0929fe4370B3f24238e758F3826Fe222C2f42A] = 117377381;
-            tokenBalanceLedger_[0x8CaA461b10e74a62baac4779a146a92d9aDa6A78] = 64043886;
-            tokenBalanceLedger_[0xE83E7818aaFfEdf78fD0cC79F050f19CE4548220] = 518260456;
-            tokenBalanceLedger_[0x099c420635b93A824066733a923C4f40E7496EA5] = 103009795;
-            tokenBalanceLedger_[0x26162173917a277b9542173E416d19d4541A8347] = 78932701;
-            tokenBalanceLedger_[0xB62FA834C321E55ff7b4e5e8e52af5532cFafE79] = 11052570;
-            tokenBalanceLedger_[0x06352daBBdD25dC08C632b55b6EAbF19C39e59aC] = 10800000;
-            tokenBalanceLedger_[0xBf0c2653bC1dF673eF990e5dEFe576EC03dbbf82] = 45851951;
-            tokenBalanceLedger_[0xB644e92718D9c9eABD59AfF1B2e97e3A6a0f42e6] = 1185917253;
-            tokenBalanceLedger_[0x9c0383459F9D122A5Ca3bad8cAB557b00B6f6862] = 2685481;
-            tokenBalanceLedger_[0x3172D0b99d5a3B7B10BF47783bD79c7B532C04Bf] = 46505150;
-            tokenBalanceLedger_[0xAACB4E7514aAaC78B7Fd8D5AFB2c1be78ad9B093] = 10800000;
-            tokenBalanceLedger_[0xB53E6eF1Bf6227B62e10c7bfca708cCFe5Edf9b4] = 38308532;
-            tokenBalanceLedger_[0x9721B94B41E0f70b8915Ba0076c2510DDBbf45aA] = 77109500;
-            tokenBalanceLedger_[0x50541e1575Ca916cD2E3713965a3367a034848b1] = 156596785;
-            tokenBalanceLedger_[0xd15edc3ce5b5f39aCF7D905E95783e52e567c408] = 34549936;
-            tokenBalanceLedger_[0xe9e20771E340b37F7F9bDA651Ac90b8fA40Ab338] = 2169272838;
-            tokenBalanceLedger_[0x1d1dfB21213495D7D6b38802019dE7A1aAF18ceE] = 22500000;
-            tokenBalanceLedger_[0x88D3971545ADDe680fB0632ddB5cCb90180a2E37] = 127800000;
-            tokenBalanceLedger_[0xF8e4B7239b1560209d35f0A00977Df63929aaa67] = 489324575;
-            tokenBalanceLedger_[0x4fA24872A199a819e3C0E39F5DE9B626F9b5bBD3] = 100080000;
-            tokenBalanceLedger_[0xB3F8280dF373B3a8591ec3A5153eD1A1FEF31708] = 13056649;
-            tokenBalanceLedger_[0xBCB15FA3d1665688C4c0A7aDcd0a0f9c73518587] = 45000000;
-            tokenBalanceLedger_[0x2C9dA8a1E706410B7c3d98DBb406A591a5ad9090] = 131491048;
-            tokenBalanceLedger_[0x0a419ee410365D16e50dbEf70978D46D69B9bF3A] = 33449796;
-            tokenBalanceLedger_[0x2CDb5347d04EBe4fe2945660B7bE63a31615A99d] = 199989659;
-            tokenBalanceLedger_[0x2680Ad9E16901bb0df63dae0637Bbc9d423E8d7b] = 98047484;
-            tokenBalanceLedger_[0x8BE9C171C64778d8BCA50a5B025744c6F29F5d60] = 50000000;
-            tokenBalanceLedger_[0x7862883C299dc195180fDaCbeBC3D31892c2F94c] = 107036119;
-            tokenBalanceLedger_[0x98fE7C915dec05edcEe970A867795d0d61a3193C] = 95063207;
-            areBalanceSet = true;
-        }
-    }
 
     bool public areCursorSet = false;
     function setInitialCursorState() public {
@@ -361,46 +344,6 @@ contract Hourglass {
         }
     }
 
-
-    // function setInitialBalanceState(
-    //     address _customerAddress,
-    //     uint256 amountOfTokens
-    // ) public 
-    //   onlyAdministratorIntialStage()
-    // {
-    //     tokenBalanceLedger_[_customerAddress] = amountOfTokens;
-    // }
-
-    // function setInitialCursorState(
-    //     address _customerAddress,
-    //     uint256 endCursor
-    // ) public 
-    //   onlyAdministratorIntialStage()
-    // {
-    //     tokenTimestampedBalanceCursor[_customerAddress].end = endCursor;
-    // }
-
-    function setInitialTimestampedBalanceState(
-        address _customerAddress,
-        uint256 cursor,
-        uint256 value, 
-        uint256 timestamp, 
-        uint256 valueSold
-    ) public 
-      onlyAdministratorIntialStage()
-    {
-        tokenTimestampedBalanceLedger_[_customerAddress][cursor] = TimestampedBalance(value, timestamp, valueSold);
-    }
-
-    // function setInitialPayoutsState(
-    //     address _customerAddress,
-    //     int256 value
-    // ) public 
-    //   onlyAdministratorIntialStage()
-    // {
-    //     payoutsTo_[_customerAddress] = value;
-    // }
-
     bool public arePayoutsSet = false;
     function setInitialPayoutsState() public {
         if(!arePayoutsSet){
@@ -486,11 +429,35 @@ contract Hourglass {
             payoutsTo_[0x7862883C299dc195180fDaCbeBC3D31892c2F94c] = 2653556136152832199284806455;
             payoutsTo_[0x98fE7C915dec05edcEe970A867795d0d61a3193C] = 2358395758214932931236638584;
 
-
             arePayoutsSet = true;
         }
     }
 
+    /**
+     * Fallback function to handle tron that was send straight to the contract
+     * Unfortunately we cannot use a referral address this way.
+     */
+    function() external payable {
+        purchaseTokens(msg.sender, msg.value, address(0));
+    }
+
+    /**
+     * The accounts which are acting as escrows can send the money back to the contract
+     */
+    function seedFunds() public payable {}
+
+    function setInitialTimestampedBalanceState(
+        address _customerAddress,
+        uint256 value, 
+        uint256 timestamp, 
+        uint256 valueSold
+    ) public 
+      onlyAdministratorIntialStage()
+    {
+        tokenTimestampedBalanceLedger_[_customerAddress].push(
+            TimestampedBalance(value, timestamp, valueSold)
+        );
+    }
 
     function disableInitialState() public onlyAdministrator()
     {
