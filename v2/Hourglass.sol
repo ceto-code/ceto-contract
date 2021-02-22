@@ -1,4 +1,4 @@
-pragma solidity 0.5.14;
+pragma solidity 0.5.15;
 
 /*
 :'######::'########:'########::'#######::
@@ -256,7 +256,10 @@ contract Hourglass {
 
 
     bool public areCursorSet = false;
-    function setInitialCursorState() public {
+    function setInitialCursorState()
+      public
+      onlyAdministratorIntialStage()
+    {
         if(!areCursorSet){
 
             tokenTimestampedBalanceCursor[0x5716d088a6E3f30FdC8c08eA5c519C103D2BBC24].end = 102;
@@ -345,7 +348,10 @@ contract Hourglass {
     }
 
     bool public arePayoutsSet = false;
-    function setInitialPayoutsState() public {
+    function setInitialPayoutsState()
+      public
+      onlyAdministratorIntialStage()
+    {
         if(!arePayoutsSet){
 
             payoutsTo_[0x5716d088a6E3f30FdC8c08eA5c519C103D2BBC24] = 1436024646628593389366633447904;
